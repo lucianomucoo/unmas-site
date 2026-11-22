@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unmas</title>
+<style>
+:root { --bg: #F2F3F5; --card: #FFFFFF; --text: #16181C; --sub: #6B7079; --line: #E3E5E9; --accent: #B9583A; }
+@media (prefers-color-scheme: dark) { :root { --bg: #15181C; --card: #21252B; --text: #F2F2F3; --sub: #99A0AA;
+  --line: #313640; --accent: #D0694A; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif; }
+.wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 64px; }
+header { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+.icon { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(180deg, #CD6B4C, #A94B31);
+  display: grid; place-items: center; }
+.icon svg { width: 100%; height: 100%; }
+.brand { font-weight: 600; font-size: 18px; color: var(--text); text-decoration: none; }
+nav { margin-left: auto; display: flex; gap: 18px; font-size: 15px; }
+nav a { color: var(--sub); text-decoration: none; }
+nav a[aria-current] { color: var(--text); }
+h1 { font-size: 32px; line-height: 1.2; font-weight: 600; margin: 0 0 6px; letter-spacing: -0.02em; }
+.updated { color: var(--sub); font-size: 14px; margin: 0 0 24px; }
+.card { background: var(--card); border-radius: 18px; padding: 8px 24px; }
+section { padding: 18px 0; border-top: 1px solid var(--line); }
+section:first-child { border-top: 0; }
+h2 { font-size: 18px; font-weight: 600; margin: 0 0 6px; }
+p { margin: 0; font-size: 16px; overflow-wrap: anywhere; }
+a { color: var(--accent); }
+footer { margin-top: 28px; color: var(--sub); font-size: 14px; }
+.links { display: grid; gap: 12px; margin-top: 24px; }
+.links a { display: block; background: var(--card); border-radius: 14px; padding: 16px 20px; color: var(--text);
+  text-decoration: none; font-weight: 500; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><span class="icon" aria-hidden="true"><svg viewBox="0 0 1024 1024"><path d="M300 317V495a212 212 0 0 0 424 0V317" fill="none" stroke="#fff" stroke-width="118" stroke-linecap="round"/></svg></span><a class="brand" href="index.html">Unmas</a><nav><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav></header>
+<h1>Unmas</h1><p class="updated">Calorie and nutrition tracker for iPhone.</p><div class="links"><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of use</a></div>
+<footer>Unmas — calorie and nutrition tracker.</footer>
+</div>
+</body>
+</html>
