@@ -4,42 +4,265 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Unmas — a calm, precise calorie and nutrition tracker for iPhone.">
+<meta name="theme-color" content="#121417">
 <title>Terms of use – Unmas</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23CD6B4C'/%3E%3Cstop offset='1' stop-color='%23A94B31'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1024' height='1024' rx='230' fill='url(%23g)'/%3E%3Cpath d='M300 317V495a212 212 0 0 0 424 0V317' fill='none' stroke='%23fff' stroke-width='118' stroke-linecap='round'/%3E%3C/svg%3E">
 <style>
-:root { --bg: #F2F3F5; --card: #FFFFFF; --text: #16181C; --sub: #6B7079; --line: #E3E5E9; --accent: #B9583A; }
-@media (prefers-color-scheme: dark) { :root { --bg: #15181C; --card: #21252B; --text: #F2F2F3; --sub: #99A0AA;
-  --line: #313640; --accent: #D0694A; } }
+:root { --bg: #121417; --panel: #16191D; --raised: #1B1E22; --tile: #23272D; --text: #E9EBEE; --sub: #A3A9B1;
+  --dim: #8A9098; --line: #2A2E34; --accent: #D0694A;
+  --metal: linear-gradient(135deg, #F4F5F7 0%, #70757C 45%, #DADDE1 100%);
+  --button: linear-gradient(180deg, #FBFBFC 0%, #C9CCD1 100%); color-scheme: dark; }
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased;
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--text); line-height: 1.55; -webkit-font-smoothing: antialiased;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif; }
-.wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 64px; }
-header { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
-.icon { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(180deg, #CD6B4C, #A94B31);
-  display: grid; place-items: center; }
-.icon svg { width: 100%; height: 100%; }
-.brand { font-weight: 600; font-size: 18px; color: var(--text); text-decoration: none; }
-nav { margin-left: auto; display: flex; gap: 18px; font-size: 15px; }
-nav a { color: var(--sub); text-decoration: none; }
-nav a[aria-current] { color: var(--text); }
-h1 { font-size: 32px; line-height: 1.2; font-weight: 600; margin: 0 0 6px; letter-spacing: -0.02em; }
-.updated { color: var(--sub); font-size: 14px; margin: 0 0 24px; }
-.card { background: var(--card); border-radius: 18px; padding: 8px 24px; }
-section { padding: 18px 0; border-top: 1px solid var(--line); }
-section:first-child { border-top: 0; }
-h2 { font-size: 18px; font-weight: 600; margin: 0 0 6px; }
-p { margin: 0; font-size: 16px; overflow-wrap: anywhere; }
-a { color: var(--accent); }
-footer { margin-top: 28px; color: var(--sub); font-size: 14px; }
-.links { display: grid; gap: 12px; margin-top: 24px; }
-.links a { display: block; background: var(--card); border-radius: 14px; padding: 16px 20px; color: var(--text);
-  text-decoration: none; font-weight: 500; }
+a { color: var(--text); }
+a:hover { color: #fff; }
+img { display: block; max-width: 100%; }
+.wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+.narrow { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+.kicker { margin: 0; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; color: var(--dim); text-transform: uppercase; }
+.sub { color: var(--sub); }
+h2.big { margin: 0; font-size: clamp(34px, 5vw, 52px); line-height: 1.06; font-weight: 600; letter-spacing: -0.025em; }
+.silver { background: linear-gradient(180deg, #FFFFFF 0%, #AEB3BA 100%); -webkit-background-clip: text; background-clip: text;
+  color: transparent; }
+section.block { padding: 120px 0; }
+section.line { border-top: 1px solid var(--line); }
+
+/* top bar */
+.topbar { position: sticky; top: 0; z-index: 10; background: rgba(18,20,23,0.78); backdrop-filter: saturate(1.4) blur(16px);
+  -webkit-backdrop-filter: saturate(1.4) blur(16px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.top { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between; padding: 12px 0; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; font-size: 19px; }
+.brand svg { width: 32px; height: 32px; display: block; }
+.top nav { display: flex; flex-wrap: wrap; gap: 4px 22px; font-size: 15px; align-items: center; }
+.top nav a { color: var(--sub); text-decoration: none; padding: 10px 0; }
+.top nav a:hover, .top nav a[aria-current] { color: var(--text); }
+.top nav a.pill { color: #121417; background: var(--button); padding: 9px 16px; border-radius: 999px; font-weight: 600; }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 14px 24px; border-radius: 999px;
+  text-decoration: none; font-weight: 600; font-size: 16px; border: 0; font-family: inherit; cursor: pointer; }
+.btn-metal { background: var(--button); color: #121417; }
+.btn-metal:hover { color: #121417; filter: brightness(1.05); }
+.btn-line { border: 1px solid #3A3F47; font-weight: 500; color: var(--text); background: transparent; }
+.soon { cursor: default; }
+
+/* phones (real screenshot, or a drawn placeholder screen) */
+.phone { width: 300px; aspect-ratio: 1179 / 2556; border-radius: 48px; background: var(--metal); padding: 3px;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.45); flex: none; }
+.phone > .glass { width: 100%; height: 100%; border-radius: 45px; background: #0B0C0E; padding: 8px; }
+.phone img, .phone .ph { width: 100%; height: 100%; border-radius: 38px; object-fit: cover; object-position: top; }
+.ph { background: var(--raised); display: flex; flex-direction: column; gap: 10px; padding: 52px 16px 16px; overflow: hidden; }
+.ph .day { margin: 0; font-size: 22px; font-weight: 600; }
+.ph .tile { background: var(--tile); border-radius: 18px; padding: 14px 16px; font-size: 12px; color: var(--sub); }
+.ph .tile b { display: block; color: var(--text); font-size: 26px; font-weight: 600; line-height: 1.1; }
+.ph .row { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; padding: 4px 0; color: var(--text); }
+.ph .row span + span { color: var(--sub); }
+.ph .bar { height: 5px; border-radius: 3px; background: #33383F; margin-top: 6px; }
+.ph .bar i { display: block; height: 5px; border-radius: 3px; background: var(--accent); }
+.ph .label { margin-top: auto; text-align: center; font-size: 11px; color: var(--dim); letter-spacing: 0.08em; }
+.phone.sm { width: 230px; border-radius: 38px; }
+.phone.sm > .glass { border-radius: 35px; padding: 6px; }
+.phone.sm img, .phone.sm .ph { border-radius: 30px; }
+
+/* hero */
+.hero { padding: 88px 0 0; display: flex; flex-direction: column; align-items: center; gap: 26px; text-align: center;
+  background: radial-gradient(50% 45% at 50% 85%, rgba(208,105,74,0.20) 0%, rgba(18,20,23,0) 70%),
+              radial-gradient(60% 35% at 50% 0%, rgba(255,255,255,0.06) 0%, rgba(18,20,23,0) 70%); overflow: hidden; }
+.hero h1 { margin: 0; font-size: clamp(46px, 8vw, 88px); line-height: 1.0; font-weight: 600; letter-spacing: -0.035em;
+  max-width: 980px; }
+.hero h1 span { color: var(--dim); -webkit-text-fill-color: var(--dim); }
+.lead { margin: 0; font-size: clamp(18px, 2.2vw, 21px); color: var(--sub); max-width: 620px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 28px; justify-content: center; font-size: 14px; color: var(--sub); margin: 4px 0 0;
+  padding: 0; list-style: none; }
+.facts li::before { content: ""; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
+  margin-right: 9px; vertical-align: middle; }
+.stage { margin-top: 40px; display: flex; justify-content: center; align-items: flex-end; gap: 28px; height: 540px; }
+.stage .phone { margin-bottom: -110px; }
+.stage .side { transform: translateY(70px); opacity: 0.92; }
+@media (max-width: 760px) { .stage .side { display: none; } .stage { height: 500px; } }
+
+/* moving strip of food sources */
+.strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 26px 0; overflow: hidden;
+  background: var(--bg); position: relative; z-index: 1; }
+.strip p { text-align: center; margin: 0 0 16px; }
+.marquee { display: flex; width: max-content; animation: slide 48s linear infinite; }
+.marquee span { padding: 0 34px; font-size: 18px; font-weight: 500; color: #C9CCD1; white-space: nowrap; }
+.marquee span::after { content: "·"; margin-left: 68px; color: var(--dim); }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* four ways */
+.ways { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 56px; }
+.way { background: var(--panel); border: 1px solid var(--line); border-radius: 28px; padding: 28px 28px 0; display: flex;
+  flex-direction: column; gap: 8px; overflow: hidden; }
+.way h3 { margin: 0; font-size: 22px; font-weight: 600; }
+.way p { margin: 0; color: var(--sub); font-size: 15px; }
+.way .crop { margin-top: 20px; height: 300px; overflow: hidden; display: flex; justify-content: center; }
+.way .phone { width: 240px; border-radius: 40px; box-shadow: none; }
+.way .phone > .glass { border-radius: 37px; padding: 6px; }
+.way .phone img, .way .phone .ph { border-radius: 32px; }
+.tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: #121417; background: var(--button);
+  border-radius: 999px; padding: 3px 9px; vertical-align: 3px; margin-left: 6px; }
+
+/* alternating rows */
+.rows { display: flex; flex-direction: column; gap: 140px; }
+.feature { display: flex; flex-wrap: wrap; gap: 64px; align-items: center; }
+.feature.flip { flex-direction: row-reverse; }
+.feature .text { flex: 1 1 420px; display: flex; flex-direction: column; gap: 18px; }
+.feature .text p.sub { margin: 0; font-size: 18px; }
+.feature .art { flex: 1 1 420px; display: flex; justify-content: center; align-items: center; min-height: 520px;
+  border-radius: 36px; background: radial-gradient(70% 70% at 50% 50%, #1D2025 0%, #14161A 100%); border: 1px solid var(--line);
+  padding: 40px 20px; overflow: hidden; }
+.checks { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.checks li { display: flex; gap: 12px; color: #C9CCD1; }
+.checks li::before { content: ""; flex: none; width: 20px; height: 20px; margin-top: 2px; border-radius: 50%; background: var(--tile)
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E9EBEE' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E") center / 12px no-repeat; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; max-width: 440px; }
+.chips span { background: var(--tile); border: 1px solid #333840; border-radius: 999px; padding: 10px 18px; font-size: 16px; }
+.chips span.hot { background: var(--accent); border-color: var(--accent); color: #fff; }
+.calc-card { width: 100%; max-width: 420px; background: var(--raised); border: 1px solid var(--line); border-radius: 26px; padding: 28px;
+  display: grid; gap: 4px; }
+.calc-card .ln { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--sub); }
+.calc-card .ln b { color: var(--text); font-weight: 600; }
+.calc-card .ln.total { border: 0; font-size: 20px; color: var(--text); }
+.calc-card .ln.total b { font-size: 28px; }
+.calc-card small { color: var(--dim); font-size: 13px; }
+.shield { display: grid; gap: 14px; width: 100%; max-width: 420px; }
+.shield div { background: var(--raised); border: 1px solid var(--line); border-radius: 20px; padding: 18px 20px; }
+.shield b { display: block; font-weight: 600; margin-bottom: 2px; }
+.shield span { color: var(--sub); font-size: 15px; }
+
+/* Plus */
+.plus-wrap { display: flex; flex-wrap: wrap; gap: 56px; align-items: center; justify-content: center; }
+.plus-frame { flex: 1 1 460px; max-width: 620px; border-radius: 30px; background: var(--metal); padding: 2px; }
+.plus-card { border-radius: 28px; background: var(--raised); padding: clamp(28px, 5vw, 44px); display: flex; flex-direction: column;
+  gap: 22px; background-image: radial-gradient(60% 60% at 50% 0%, rgba(255,255,255,0.06) 0%, rgba(27,30,34,0) 70%); }
+.plus-card h2 { margin: 0; font-size: clamp(32px, 5vw, 44px); font-weight: 600; letter-spacing: -0.02em; line-height: 1.08; }
+.plans { display: flex; flex-wrap: wrap; gap: 12px; }
+.plan { flex: 1 1 200px; border: 1px solid #3A3F47; border-radius: 18px; padding: 18px; }
+.plan.main { border-color: #DADDE1; }
+.plan p { margin: 0; color: var(--sub); font-size: 14px; }
+.plan b { display: block; margin-top: 4px; font-size: 30px; font-weight: 600; }
+.plan b small { font-size: 15px; color: var(--sub); font-weight: 400; }
+.note { margin: 0; font-size: 14px; color: var(--dim); }
+
+/* questions */
+details { border-bottom: 1px solid var(--line); padding: 20px 0; }
+summary { font-size: 18px; font-weight: 500; cursor: pointer; }
+details p { margin: 10px 0 0; color: var(--sub); }
+
+/* closing call to action */
+.cta { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 26px; padding: 140px 24px;
+  background: radial-gradient(50% 60% at 50% 100%, rgba(208,105,74,0.18) 0%, rgba(18,20,23,0) 70%); }
+.cta .icon svg { width: 84px; height: 84px; display: block; filter: drop-shadow(0 18px 40px rgba(208,105,74,0.35)); }
+
+/* text pages */
+.page { padding: 56px 0 96px; }
+.page h1 { font-size: clamp(34px, 5vw, 48px); line-height: 1.12; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.025em; }
+.updated { color: var(--dim); font-size: 14px; margin: 0 0 28px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 22px; padding: 8px 28px; }
+.card section { padding: 20px 0; border-top: 1px solid var(--line); }
+.card section:first-child { border-top: 0; }
+.card h2 { font-size: 18px; font-weight: 600; margin: 0 0 6px; }
+.card p { margin: 0; font-size: 16px; color: #C9CCD1; overflow-wrap: anywhere; }
+.card p + p, .card ul + p, .card p + ul { margin-top: 10px; }
+.card ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+.card li { font-size: 16px; color: #C9CCD1; overflow-wrap: anywhere; }
+/* open-source licences (legal batch 3): one row per licence text, opened to read it */
+.lic details { padding: 14px 0; }
+.lic summary { font-size: 16px; }
+.lic .pk { margin: 8px 0 0; color: var(--sub); font-size: 14px; overflow-wrap: anywhere; }
+.lic pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 12px; line-height: 1.5; color: var(--dim);
+  background: var(--raised); border-radius: 12px; padding: 14px; margin: 10px 0 0; }
+/* the simple home page (until the app screenshots exist, legal batch 3) */
+.simple { text-align: center; padding: 96px 0 72px; display: grid; justify-items: center; gap: 20px; }
+.simple .icon svg { width: 84px; height: 84px; display: block; }
+.simple h1 { margin: 0; font-size: clamp(40px, 6vw, 56px); line-height: 1.05; font-weight: 600; letter-spacing: -0.025em; }
+.simple .links { display: grid; gap: 10px; width: 100%; max-width: 440px; margin-top: 16px; text-align: left; }
+.simple .links a { display: block; padding: 14px 18px; background: var(--panel); border: 1px solid var(--line);
+  border-radius: 16px; text-decoration: none; }
+.simple .links a:hover { border-color: #3A3F46; }
+.contact { background: var(--panel); border: 1px solid var(--line); border-radius: 22px; padding: 28px; display: grid; gap: 14px;
+  margin-bottom: 48px; }
+.contact p { margin: 0; color: var(--sub); }
+.contact .btn { justify-self: start; }
+h2.title { margin: 0 0 12px; font-size: clamp(28px, 4vw, 34px); font-weight: 600; letter-spacing: -0.01em; }
+
+/* calculator */
+.calc { display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start; }
+.calc form { flex: 1 1 420px; background: var(--panel); border: 1px solid var(--line); border-radius: 24px; padding: 28px; display: grid;
+  gap: 22px; }
+.calc fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 10px; }
+.calc legend, .calc label.lbl { font-size: 14px; color: var(--sub); padding: 0; margin-bottom: 2px; }
+.seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.seg label { flex: 1 1 auto; }
+.seg input { position: absolute; opacity: 0; pointer-events: none; }
+.seg span { display: block; text-align: center; padding: 11px 12px; border-radius: 12px; background: var(--tile); border: 1px solid #333840;
+  cursor: pointer; font-size: 14px; min-height: 44px; }
+.seg input:checked + span { background: #E9EBEE; color: #121417; border-color: #E9EBEE; font-weight: 600; }
+.seg input:focus-visible + span { outline: 2px solid #fff; outline-offset: 2px; }
+.nums { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; }
+.nums input, .calc select { width: 100%; font: inherit; font-size: 17px; color: var(--text); background: var(--tile);
+  border: 1px solid #333840; border-radius: 12px; padding: 11px 12px; min-height: 46px; }
+.result { flex: 1 1 340px; position: sticky; top: 90px; background: var(--raised); border: 1px solid var(--line); border-radius: 24px;
+  padding: 28px; display: grid; gap: 6px; }
+.result .ln { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--sub); }
+.result .ln b { color: var(--text); }
+.result .target { padding-top: 14px; }
+.result .target b { display: block; font-size: 52px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.05; }
+.result p { margin: 0; color: var(--sub); font-size: 14px; }
+.result .warn { color: #E7B07A; }
+
+/* footer */
+footer { border-top: 1px solid var(--line); padding: 64px 0 40px; font-size: 14px; }
+.cols { display: flex; flex-wrap: wrap; gap: 40px 64px; justify-content: space-between; }
+.cols .about { flex: 1 1 260px; max-width: 320px; display: grid; gap: 12px; color: var(--sub); align-content: start; }
+.cols .about p { margin: 0; }
+.cols nav { display: grid; gap: 10px; align-content: start; min-width: 140px; }
+.cols nav b { color: var(--text); font-weight: 600; margin-bottom: 4px; }
+.cols nav a { color: var(--sub); text-decoration: none; }
+.cols nav a:hover { color: var(--text); }
+.copy { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--dim); display: flex; flex-wrap: wrap;
+  gap: 12px; justify-content: space-between; }
+
+/* gentle fade-in while scrolling (off when the visitor asks for less motion) */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .marquee { animation: none; flex-wrap: wrap; width: auto; justify-content: center; }
+  .marquee span.dup { display: none; }
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-<header><span class="icon" aria-hidden="true"><svg viewBox="0 0 1024 1024"><path d="M300 317V495a212 212 0 0 0 424 0V317" fill="none" stroke="#fff" stroke-width="118" stroke-linecap="round"/></svg></span><a class="brand" href="/">Unmas</a><nav><a href="/privacy">Privacy</a><a href="/terms" aria-current="page">Terms</a></nav></header>
-<h1>Terms of use</h1><p class="updated">Last updated: 23 November 2026</p><div class="card"><section><p>By using the app you agree to these terms. The app helps you keep track of what you eat; it is provided “as is”, without guarantees that it is free of errors or always available.</p></section><section><h2>Your account</h2><p>Keep your password safe. You are responsible for what is entered in your account. Don’t misuse the app or try to access other people’s data.</p></section><section><h2>Nutrition data</h2><p>Food values come from public databases and from what you enter. They can be incomplete or wrong; check the label when it matters.</p></section><section><h2>Unmas Plus</h2><p>Unmas Plus is an optional subscription that adds the AI features (meal photos, label photos and describing exercise) and removes ads. It is offered monthly or yearly; the price is shown before you buy and charged to your Apple account. It renews automatically unless you cancel at least 24 hours before the end of the period, in your App Store settings. A free trial (when offered) is available once per person; if you don’t cancel during the trial, the subscription starts at its end. Deleting your account does not cancel a subscription. The AI features have fair daily limits (currently 10 of each a day) to keep them working for everyone.</p></section><section><h2>Free photos from ads</h2><p>Without Unmas Plus you can watch a short ad to get one free AI photo, up to 2 a day. A free photo has no money value, can’t be sold or exchanged, and expires after 24 hours if not used.</p></section><section><h2>Changes</h2><p>We may update the app and these terms. If a change matters, we will tell you in the app. You can stop using the app and delete your account at any time.</p></section></div>
-<footer>Unmas — calorie and nutrition tracker.</footer>
+<div class="topbar"><div class="wrap"><header class="top"><a class="brand" href="/"><svg viewBox="0 0 1024 1024" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#CD6B4C"/><stop offset="1" stop-color="#A94B31"/></linearGradient></defs><rect width="1024" height="1024" rx="230" fill="url(#g)"/><path d="M300 317V495a212 212 0 0 0 424 0V317" fill="none" stroke="#fff" stroke-width="118" stroke-linecap="round"/></svg>Unmas</a>
+<nav aria-label="Main"><a href="/support">Support</a></nav></header></div></div>
+<main>
+<div class="narrow page"><h1>Terms of use</h1><p class="updated">Last updated: 24 November 2026</p><div class="card"><section><p>These terms are an agreement between you and Lucjan Muco (Albania), who makes Unmas (“we”). By creating an account or using Unmas you agree to them. If you don’t agree, please don’t use the app.</p></section><section><h2>Who can use Unmas</h2><p>You must be 16 or older. Give true information about yourself, and use your account only for yourself.</p></section><section><h2>Not medical advice</h2><p>Unmas helps you keep track of what you eat; it is not medical advice and not a medical device. Read the Health disclaimer (Settings → Legal), and talk to a doctor before big changes to your diet.</p></section><section><h2>Your account</h2><p>Keep your password safe; you are responsible for what happens in your account. Tell us at the Support page (<a href="/support">macrolo.app/support</a>) if you think someone else is using it.</p></section><section><h2>Your data</h2><p>What you enter stays yours. You allow us to store and use it only to run Unmas for you, as the Privacy policy explains. You can export it and delete your account at any time.</p></section><section><h2>Nutrition data and estimates</h2><p>Food values come from public databases, product data added by Open Food Facts users, and what you enter. Targets, calories burned, body fat, goal dates and AI estimates are calculations and can be wrong. Check the label when it matters — always for allergies and intolerances.</p></section><section><h2>AI features</h2><p>Meal photos, label photos and Describe it are optional, ask for your permission, and have fair daily limits (currently 10 of each a day) to keep them working for everyone. Only send photos of food, plates and labels — not of people or private documents. Always check what the AI found before you add it.</p></section><section><h2>Unmas Plus</h2><p>Unmas Plus is an optional subscription that adds the AI features (meal photos, label photos and Describe it) and removes ads. It is offered monthly or yearly; the price is shown before you buy and charged to your Apple account. It renews automatically unless you cancel at least 24 hours before the end of the period, in your App Store settings. A free trial (when offered) is available once per person; if you don’t cancel during the trial, the subscription starts at its end. Deleting your account does not cancel a subscription. Refunds are handled by Apple under its rules, and Apple tells you before a new price applies.</p></section><section><h2>Free photos from ads</h2><p>Without Unmas Plus you can watch a short ad to get one free AI photo, up to 2 a day. A free photo has no money value, can’t be sold or exchanged, and expires after 24 hours if not used.</p></section><section><h2>Fair use</h2><p>Don’t misuse Unmas: no attempts to reach other people’s data or our systems, no copying of the app or its food databases, no automated collecting of data, no reselling, and nothing illegal. We may limit or close an account that does, and we tell you why unless the law doesn’t allow it.</p></section><section><h2>Other companies’ services</h2><p>Some parts of Unmas come from other companies: Apple, Google, Anthropic, Open Food Facts and the food databases listed in Data sources (Settings → Legal). Their own terms apply to their services, and we aren’t responsible for their content.</p></section><section><h2>Our app</h2><p>The app, its design and the name Unmas belong to us. You may use the app for your own, non-commercial use. On iPhone, Apple’s standard licence (the Licensed Application End User License Agreement) also applies; Apple isn’t responsible for the app or its content.</p></section><section><h2>Changes and ending</h2><p>We may improve, change or remove features. We try to keep Unmas running, but can’t promise it is always available or free of errors. You can stop using Unmas and delete your account at any time. If we ever close Unmas, we tell you in advance where possible, so you can export your data.</p></section><section><h2>Liability</h2><p>Unmas is provided as it is, as far as the law allows. We aren’t liable for losses caused by relying on estimates or food values, or for indirect losses. Our total liability is limited to what you paid for Unmas Plus in the 12 months before the claim. Nothing in these terms limits liability that the law doesn’t allow to be limited (for example for death or injury caused by negligence, or for fraud), and nothing takes away rights you have as a consumer under the laws of your country.</p></section><section><h2>Law and disputes</h2><p>These terms are governed by Albanian law, and disputes go to the courts of Tirana. If you are a consumer living elsewhere, you keep the protection of the mandatory laws of your country and can also go to your local courts. Please contact us first — most problems can be solved quickly.</p></section><section><h2>Changes to these terms</h2><p>When we change these terms, the date at the top changes. If a change matters, we tell you in the app before it takes effect; if you don’t agree, you can delete your account.</p></section><section><h2>Contact</h2><p>Lucjan Muco, Albania · the Support page (<a href="/support">macrolo.app/support</a>)</p></section></div></div>
+</main>
+<footer><div class="wrap">
+<div class="cols">
+<div class="about"><a class="brand" href="/"><svg viewBox="0 0 1024 1024" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#CD6B4C"/><stop offset="1" stop-color="#A94B31"/></linearGradient></defs><rect width="1024" height="1024" rx="230" fill="url(#g)"/><path d="M300 317V495a212 212 0 0 0 424 0V317" fill="none" stroke="#fff" stroke-width="118" stroke-linecap="round"/></svg>Unmas</a><p>A calm, precise calorie and nutrition tracker. “Unë mas” is Albanian for “I measure”.</p></div>
+
+<nav aria-label="Help"><b>Help</b><a href="/support">Support</a><a href="/support#questions">Common questions</a><a href="/delete-account">Delete your account</a></nav>
+<nav aria-label="Legal"><b>Legal</b><a href="/privacy">Privacy policy</a><a href="/terms">Terms of use</a><a href="/health">Health disclaimer</a><a href="/health-data">Consumer health data (US)</a><a href="/sources">Data sources</a><a href="/licenses">Open-source licences</a></nav>
 </div>
+<div class="copy"><span>© 2026 Unmas</span><span>Made for iPhone</span></div>
+</div></footer>
+<script>
+(function () {
+  var items = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { items.forEach(function (el) { el.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -10% 0px' });
+  items.forEach(function (el) { io.observe(el); });
+})();
+</script>
 </body>
 </html>
